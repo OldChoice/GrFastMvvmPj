@@ -1,0 +1,3 @@
+rootProject.name = "GrFastMvvmPj"
+include ':app'
+include ':GrFastMvvm'

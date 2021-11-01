@@ -17,7 +17,7 @@ import com.free.grfastmvvm.utils.ToastUtils;
 
 /**
 * Create by guorui on 2021/7/7
-* Last update 2021/7/7
+* Last update 2021-11-1 17:30:58
 * Description:
 **/
 public class LoginViewModel extends BaseViewModel {

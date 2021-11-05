@@ -28,8 +28,6 @@ import android.provider.MediaStore.MediaColumns;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
-import org.reactivestreams.Subscriber;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -55,7 +53,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import com.free.grfastmvvm.utils.compression.Luban;
 
-import static com.free.grfastmvvm.utils.Utils.getContext;
+import static com.free.grfastmvvm.utils.UtilsInstance.getContext;
 
 /**
  * Created by goldze on 2017/7/17.

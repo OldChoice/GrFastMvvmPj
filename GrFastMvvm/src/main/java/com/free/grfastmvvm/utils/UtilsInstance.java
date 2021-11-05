@@ -9,22 +9,22 @@ import androidx.annotation.NonNull;
  * Created by goldze on 2017/5/14.
  * 常用工具类
  */
-public final class Utils {
+public final class UtilsInstance {
 
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
-    private Utils() {
+    private UtilsInstance() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
     /**
-     * 初始化工具类
+     * 初始化工具类反之内存泄露
      *
      * @param context 上下文
      */
     public static void init(@NonNull final Context context) {
-        Utils.context = context.getApplicationContext();
+        UtilsInstance.context = context.getApplicationContext();
     }
 
     /**

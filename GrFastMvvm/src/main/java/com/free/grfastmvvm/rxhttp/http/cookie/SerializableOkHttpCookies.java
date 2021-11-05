@@ -1,4 +1,4 @@
-package com.free.grfastmvvm.http.cookie.store;
+package com.free.grfastmvvm.rxhttp.http.cookie;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -7,34 +7,36 @@ import java.io.Serializable;
 
 import okhttp3.Cookie;
 
-public class SerializableHttpCookie implements Serializable {
-    private static final long serialVersionUID = 6374381323722046732L;
+/**
+ * Created by Administrator on 2016-5-4.
+ */
+public class SerializableOkHttpCookies implements Serializable {
 
-    private transient final Cookie cookie;
-    private transient Cookie clientCookie;
+    private transient final Cookie cookies;
+    private transient Cookie clientCookies;
 
-    public SerializableHttpCookie(Cookie cookie) {
-        this.cookie = cookie;
+    public SerializableOkHttpCookies(Cookie cookies) {
+        this.cookies = cookies;
     }
 
-    public Cookie getCookie() {
-        Cookie bestCookie = cookie;
-        if (clientCookie != null) {
-            bestCookie = clientCookie;
+    public Cookie getCookies() {
+        Cookie bestCookies = cookies;
+        if (null != clientCookies) {
+            bestCookies = clientCookies;
         }
-        return bestCookie;
+        return bestCookies;
     }
 
     private void writeObject(ObjectOutputStream out) throws IOException {
-        out.writeObject(cookie.name());
-        out.writeObject(cookie.value());
-        out.writeLong(cookie.expiresAt());
-        out.writeObject(cookie.domain());
-        out.writeObject(cookie.path());
-        out.writeBoolean(cookie.secure());
-        out.writeBoolean(cookie.httpOnly());
-        out.writeBoolean(cookie.hostOnly());
-        out.writeBoolean(cookie.persistent());
+        out.writeObject(cookies.name());
+        out.writeObject(cookies.value());
+        out.writeLong(cookies.expiresAt());
+        out.writeObject(cookies.domain());
+        out.writeObject(cookies.path());
+        out.writeBoolean(cookies.secure());
+        out.writeBoolean(cookies.httpOnly());
+        out.writeBoolean(cookies.hostOnly());
+        out.writeBoolean(cookies.persistent());
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
@@ -55,6 +57,6 @@ public class SerializableHttpCookie implements Serializable {
         builder = builder.path(path);
         builder = secure ? builder.secure() : builder;
         builder = httpOnly ? builder.httpOnly() : builder;
-        clientCookie = builder.build();
+        clientCookies = builder.build();
     }
 }

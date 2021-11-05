@@ -1,8 +1,7 @@
-package com.free.grfastmvvm.http.download;
+package com.free.grfastmvvm.rxhttp.http.progress;
 
 import java.io.IOException;
 
-import com.free.grfastmvvm.bus.RxBus;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import okio.Buffer;
@@ -12,22 +11,14 @@ import okio.Okio;
 import okio.Source;
 
 /**
- * Created by goldze on 2017/5/11.
+ * 下载时候实体类用来计算进度数
  */
-
 public class ProgressResponseBody extends ResponseBody {
-    private ResponseBody responseBody;
-
+    private final ResponseBody responseBody;
     private BufferedSource bufferedSource;
-    private String tag;
 
-    public ProgressResponseBody(ResponseBody responseBody) {
+    public ProgressResponseBody(ResponseBody responseBody ) {
         this.responseBody = responseBody;
-    }
-
-    public ProgressResponseBody(ResponseBody responseBody, String tag) {
-        this.responseBody = responseBody;
-        this.tag = tag;
     }
 
     @Override
@@ -50,16 +41,31 @@ public class ProgressResponseBody extends ResponseBody {
 
     private Source source(Source source) {
         return new ForwardingSource(source) {
-            long bytesReaded = 0;
+            long totalBytesRead = 0L;
 
             @Override
             public long read(Buffer sink, long byteCount) throws IOException {
                 long bytesRead = super.read(sink, byteCount);
-                bytesReaded += bytesRead == -1 ? 0 : bytesRead;
-                //使用RxBus的方式，实时发送当前已读取(上传/下载)的字节数据
-                RxBus.getDefault().post(new DownLoadStateBean(contentLength(), bytesReaded, tag));
+                totalBytesRead += bytesRead != -1 ? bytesRead : 0;
+                // 如果未声明就返回0立马停止
+                if (mProgressHandler == null) {
+                    return 0;
+                }
+                progressBean.setBytesRead(totalBytesRead);
+                progressBean.setContentLength(responseBody.contentLength());
+                progressBean.setDone( bytesRead == -1);
+                mProgressHandler.sendMessage(progressBean);
+
+
                 return bytesRead;
             }
         };
+    }
+    private static ProgressHandlerMannager mProgressHandler;
+    //    进度
+    private static ProgressBean progressBean = new ProgressBean();
+
+    public static void setProgressHandler(ProgressHandlerMannager progressHandler) {
+        mProgressHandler = progressHandler;
     }
 }

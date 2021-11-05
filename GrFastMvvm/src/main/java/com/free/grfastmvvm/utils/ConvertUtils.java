@@ -508,7 +508,7 @@ public final class ConvertUtils {
      * @return drawable
      */
     public static Drawable bitmap2Drawable(final Bitmap bitmap) {
-        return bitmap == null ? null : new BitmapDrawable(Utils.getContext().getResources(), bitmap);
+        return bitmap == null ? null : new BitmapDrawable(UtilsInstance.getContext().getResources(), bitmap);
     }
 
     /**
@@ -559,7 +559,7 @@ public final class ConvertUtils {
      * @return px值
      */
     public static int dp2px(final float dpValue) {
-        final float scale = Utils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = UtilsInstance.getContext().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -570,7 +570,7 @@ public final class ConvertUtils {
      * @return dp值
      */
     public static int px2dp(final float pxValue) {
-        final float scale = Utils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = UtilsInstance.getContext().getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
@@ -581,7 +581,7 @@ public final class ConvertUtils {
      * @return px值
      */
     public static int sp2px(final float spValue) {
-        final float fontScale = Utils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = UtilsInstance.getContext().getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
@@ -592,7 +592,7 @@ public final class ConvertUtils {
      * @return sp值
      */
     public static int px2sp(final float pxValue) {
-        final float fontScale = Utils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = UtilsInstance.getContext().getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
 

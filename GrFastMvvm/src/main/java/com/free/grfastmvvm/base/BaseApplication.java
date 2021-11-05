@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import com.free.grfastmvvm.utils.Utils;
+import com.free.grfastmvvm.utils.UtilsInstance;
 
 /**
  * Created by goldze on 2017/6/15.
@@ -29,7 +29,7 @@ public class BaseApplication extends Application {
     public static synchronized void setApplication(@NonNull Application application) {
         sInstance = application;
         //初始化工具类
-        Utils.init(application);
+        UtilsInstance.init(application);
         //注册监听每个activity的生命周期,便于堆栈式管理
         application.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 

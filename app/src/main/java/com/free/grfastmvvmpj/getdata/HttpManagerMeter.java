@@ -1,7 +1,7 @@
 package com.free.grfastmvvmpj.getdata;
 
-import com.free.grfastmvvm.rxhttp.http.HttpManager;
-import com.free.grfastmvvm.rxhttp.http.basehttp.RetrofitUtils;
+import com.free.grfastmvvm.http.HttpManager;
+import com.free.grfastmvvm.http.basehttp.RetrofitUtils;
 import com.free.grfastmvvmpj.listforjson.ChoosePersonMultiVo;
 
 import java.util.List;

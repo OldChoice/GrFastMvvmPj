@@ -44,8 +44,6 @@ public class OkHttp3Utils {
 
     /**
      * 获取OkHttpClient对象
-     *
-     * @return
      */
     public static OkHttpClient getOkHttpClient() {
 

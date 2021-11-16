@@ -18,7 +18,6 @@ public abstract class RetrofitUtils {
      * 获取Retrofit对象
      *
      * @param BASE_URL 设置基本地址
-     * @return
      */
     public static Retrofit getRetrofit(String BASE_URL) {
 

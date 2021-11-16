@@ -9,8 +9,11 @@ import androidx.annotation.NonNull;
 import com.free.grfastmvvm.utils.UtilsInstance;
 
 /**
- * Created by goldze on 2017/6/15.
- */
+ * Create by guorui on 2021/11/16
+ * Last update 2021/11/16
+ * Description:自定义基本application，包括监听activity添加进堆栈和初始化工具类等，
+ * 在使用这个框架的时候只需要继承他就可以了
+ **/
 
 public class BaseApplication extends Application {
     private static Application sInstance;
@@ -23,8 +26,6 @@ public class BaseApplication extends Application {
 
     /**
      * 当主工程没有继承BaseApplication时，可以使用setApplication方法初始化BaseApplication
-     *
-     * @param application
      */
     public static synchronized void setApplication(@NonNull Application application) {
         sInstance = application;

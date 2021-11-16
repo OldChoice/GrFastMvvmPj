@@ -19,9 +19,10 @@ import androidx.annotation.StringRes;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by goldze on 2017/5/14.
- * 吐司工具类
- */
+* Create by guorui on 2021/11/16
+* Last update 2021/11/16
+* Description:吐司工具类
+**/
 public final class ToastUtils {
 
     private static final int DEFAULT_COLOR = 0x12000000;

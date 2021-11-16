@@ -6,9 +6,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 /**
- * Created by goldze on 2017/5/14.
- * 常用工具类
- */
+ * Create by guorui on 2021/11/16
+ * Last update 2021/11/16
+ * Description:获取上下文
+ **/
 public final class UtilsInstance {
 
     @SuppressLint("StaticFieldLeak")

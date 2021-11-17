@@ -12,6 +12,7 @@ import com.free.grfastmvvm.base.BaseViewModel;
 import com.free.grfastmvvm.binding.command.BindingAction;
 import com.free.grfastmvvm.binding.command.BindingCommand;
 import com.free.grfastmvvm.binding.command.BindingConsumer;
+import com.free.grfastmvvm.binding.command.BindingFunction;
 import com.free.grfastmvvm.bus.event.SingleLiveEvent;
 import com.free.grfastmvvm.utils.ToastUtils;
 
@@ -73,6 +74,13 @@ public class LoginViewModel extends BaseViewModel {
         @Override
         public void call() {
             login();
+        }
+    }, new BindingFunction<Boolean>() {
+        @Override
+        public Boolean call() {
+            System.out.println("wwwwwwwwwwwwwww");
+            //这里为true，这两个地方都能用，为false上面那个不能用这里可用，为null直接爆掉
+            return null;
         }
     });
 

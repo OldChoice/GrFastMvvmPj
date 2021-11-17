@@ -54,6 +54,7 @@ public class BindingCommand<T> {
      */
     public void execute(T parameter) {
         if (consumer != null && canExecute0()) {
+            //执行到接口call中，并带参
             consumer.call(parameter);
         }
     }

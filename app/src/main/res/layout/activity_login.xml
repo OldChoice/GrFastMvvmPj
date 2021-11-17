@@ -153,6 +153,7 @@
                 android:text="登录"
                 android:textColor="@color/white"
                 android:textSize="16sp"
+                android:onClickListener="@{viewModel.loginOnClickCommand1}"
                 binding:onClickCommand="@{viewModel.loginOnClickCommand}" />
 
         </LinearLayout>

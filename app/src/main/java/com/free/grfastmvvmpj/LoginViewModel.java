@@ -16,10 +16,10 @@ import com.free.grfastmvvm.bus.event.SingleLiveEvent;
 import com.free.grfastmvvm.utils.ToastUtils;
 
 /**
-* Create by guorui on 2021/7/7
-* Last update 2021-11-1 17:30:58
-* Description:
-**/
+ * Create by guorui on 2021/7/7
+ * Last update 2021-11-1 17:30:58
+ * Description:
+ **/
 public class LoginViewModel extends BaseViewModel {
     //用户名的绑定
     public ObservableField<String> userName = new ObservableField<>("");
@@ -76,6 +76,10 @@ public class LoginViewModel extends BaseViewModel {
         }
     });
 
+    public void loginOnClickCommand1(View view) {
+        System.out.println("直接使用原来触发");
+    }
+
     /**
      * 网络模拟一个登陆操作
      **/
@@ -89,6 +93,7 @@ public class LoginViewModel extends BaseViewModel {
             return;
         }
         ToastUtils.showShort("成功！");
+        System.out.println("自定义的触发" + userName.get());
 
     }
 

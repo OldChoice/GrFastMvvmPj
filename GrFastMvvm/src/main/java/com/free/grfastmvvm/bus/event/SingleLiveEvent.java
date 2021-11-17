@@ -11,10 +11,13 @@ import androidx.lifecycle.Observer;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
-* Create by guorui on 2021/10/22
-* Last update 2021/10/22
-* Description:安全线程执行livedata观察者模式传递数据setvalue可以为任何数据
-**/
+ * Create by guorui on 2021/10/22
+ * Last update 2021/10/22
+ * Description:安全线程执行livedata观察者模式传递数据setvalue可以为任何数据
+ * viewModel中在viewModel层初始化处理数据，然后在activity或fragment中执行一些UI操作等
+ * 这个是view层，这里绑定一些数据，例如BindingCommand或其它的点击等触发事件，但是界面上要实时变化操作等，在xml里处理不了，
+ * 这里直接在viewModel中初始化，然后根据点击或触发事件的变化赋值到这里，最后到activity或其他里响应（这里类似于MVP中接口处理UI在view层展示一个意思，只不过这里用到了观察者模式一样的）
+ **/
 public class SingleLiveEvent<T> extends MutableLiveData<T> {
 
     private static final String TAG = "SingleLiveEvent";

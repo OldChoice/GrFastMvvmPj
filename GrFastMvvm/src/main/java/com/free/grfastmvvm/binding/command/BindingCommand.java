@@ -1,11 +1,8 @@
 package com.free.grfastmvvm.binding.command;
 
-
-import io.reactivex.exceptions.Exceptions;
-
 /**
- * About : kelin的ReplyCommand
- * 执行的命令回调, 用于ViewModel与xml之间的数据绑定
+ * 执行的命令回调, 用于ViewModel与xml之间的数据绑定并直接操作
+ * 这个是view层，这里绑定一些事件，例如点击等，直接与xml绑定在viewModel中响应操作
  */
 public class BindingCommand<T> {
     private BindingAction execute;

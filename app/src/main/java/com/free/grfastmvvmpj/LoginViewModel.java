@@ -69,6 +69,8 @@ public class LoginViewModel extends BaseViewModel {
             }
         }
     });
+
+
     //登录按钮的点击事件
     public BindingCommand loginOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
@@ -80,7 +82,7 @@ public class LoginViewModel extends BaseViewModel {
         public Boolean call() {
             System.out.println("wwwwwwwwwwwwwww");
             //这里为true，这两个地方都能用，为false上面那个不能用这里可用，为null直接爆掉
-            return null;
+            return true;
         }
     });
 

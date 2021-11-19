@@ -43,8 +43,8 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         getSupportActionBar().hide();
         StatusBarUtils.setWindowStatusBarColor(this, R.color.white, R.color.white);
 //        StatusBarUtils.setNoTitleView(this);
-        AppManager.getAppManager().addActivity(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
         //页面接受的参数方法
         initParam();
         //私有的初始化Databinding和ViewModel方法
